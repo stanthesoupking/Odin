@@ -2,6 +2,7 @@ package objc_QuartzCore
 
 import NS "core:sys/darwin/Foundation"
 import MTL "vendor:darwin/Metal"
+import CG "vendor:darwin/CoreGraphics"
 import "base:intrinsics"
 
 @(private)
@@ -98,6 +99,14 @@ MetalLayer_setFrame :: proc "c" (self: ^MetalLayer, frame: NS.Rect) {
 	msgSend(nil, self, "setFrame:", frame)
 }
 
+@(objc_type=MetalLayer, objc_name="colorspace")
+MetalLayer_colorspace :: proc "c" (self: ^MetalLayer) -> CG.ColorSpace {
+	return msgSend(CG.ColorSpace, self, "colorspace")
+}
+@(objc_type=MetalLayer, objc_name="setColorspace")
+MetalLayer_setColorspace :: proc "c" (self: ^MetalLayer, space: CG.ColorSpace) {
+	msgSend(nil, self, "setColorspace:", space)
+}
 
 @(objc_type=MetalLayer, objc_name="nextDrawable")
 MetalLayer_nextDrawable :: proc "c" (self: ^MetalLayer) -> ^MetalDrawable {
