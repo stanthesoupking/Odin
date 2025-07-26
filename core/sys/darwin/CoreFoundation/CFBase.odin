@@ -7,6 +7,7 @@ OptionFlags :: distinct uint
 HashCode    :: distinct uint
 Index       :: distinct int
 TypeRef     :: distinct rawptr
+PropertyList :: distinct rawptr
 
 Range :: struct {
 	location: Index,
